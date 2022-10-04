@@ -3,7 +3,7 @@
 
   inputs.nixpkgs.url = "nixpkgs/nixos-24.05";
 
-  outputs = { self, nixpkgs, nix }:
+  outputs = { self, nixpkgs }:
 
     let
       forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
