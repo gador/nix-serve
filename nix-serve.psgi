@@ -30,7 +30,7 @@ my $app = sub {
 
     elsif ($path =~ /^\/realisations\/(.*)\.doi/) {
         my $rawDrvOutput = $1;
-        my $rawRealisation = queryRawRealisation($rawDrvOutput);
+        my $rawRealisation = $store->queryRawRealisation($rawDrvOutput);
         return [404, ['Content-Type' => 'text/plain'], ["No such derivation output.\n"]] unless $rawRealisation;
         return [200, ['Content-Type' => 'text/plain'], [$rawRealisation]];
     }
